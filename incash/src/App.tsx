@@ -1,16 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Header, Card } from './components';
+import { Header, Body } from './components';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Body />
     </React.Fragment>
     // <div>
     //   <input placeholder="Valor: R$ 00.00" type="text" id="add"/>

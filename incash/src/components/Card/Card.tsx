@@ -1,19 +1,29 @@
+import { useState } from 'react';
 import './style.css'
 
-const Card = () => {
+interface ICard {
+    name: string;
+    brand: string;
+    price: number;
+    image?: string;
+}
+
+const Card = ({ name, brand, price, image }:ICard) => {
+    const [selected, setSelected] = useState(false);
+
     return (
         <div className="container page-wrapper">
         <div className="page-inner">
           <div className="row">
-            <div className="el-wrapper">
+            <div className="el-wrapper" style={selected ? {"border": "solid 3px black"} : {}} onClick={() => setSelected(!selected)}>
               <div className="box-up">
-                <img className="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""/>
+                <img className="img" src={image} alt=""/>
                 <div className="img-info">
                   <div className="info-inner">
-                    <span className="p-name">I feel like Pablo</span>
-                    <span className="p-company">Yeezy</span>
+                    <span className="p-name">{name}</span>
+                    <span className="p-company">{brand}</span>
                   </div>
-                  <div className="a-size">Available sizes : <span className="size">S , M , L , XL</span></div>
+                  {/* <div className="a-size">Available sizes : <span className="size">S , M , L , XL</span></div> */}
                 </div>
               </div>
       
@@ -23,7 +33,7 @@ const Card = () => {
                 </div>
       
                 <a className="cart" href="#">
-                  <span className="price">$120</span>
+                  <span className="price">R${price}</span>
                   <span className="add-to-cart">
                     <span className="txt">Add in cart</span>
                   </span>

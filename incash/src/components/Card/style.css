@@ -25,6 +25,11 @@ html {
   align-items: center;
 }
 
+.img {
+    width: 200px;
+    overflow: hidden;
+}
+
 body {
   background-color: #f7f7f7;
 }
