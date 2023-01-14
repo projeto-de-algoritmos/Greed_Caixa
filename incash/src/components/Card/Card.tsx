@@ -1,21 +1,31 @@
 import { useState } from 'react';
+import { IItemValue } from '../../modal/itemValue';
 import './style.css'
 
-interface ICard {
+
+interface IBody {
+  setItemValue: (IItemValue:IItemValue) => void;
+  itemValue: IItemValue;
+}
+
+interface ICard extends IBody{
     name: string;
     brand: string;
     price: number;
     image?: string;
 }
 
-const Card = ({ name, brand, price, image }:ICard) => {
+const Card = ({ name, brand, price, image, setItemValue, itemValue }:ICard) => {
     const [selected, setSelected] = useState(false);
-
+    const handleCardClick = () => {
+      setSelected(!selected);
+      setItemValue({...itemValue, [name]: price})
+    }
     return (
         <div className="container page-wrapper">
         <div className="page-inner">
           <div className="row">
-            <div className="el-wrapper" style={selected ? {"border": "solid 3px black"} : {}} onClick={() => setSelected(!selected)}>
+            <div className="el-wrapper" style={selected ? {"border": "solid 3px black"} : {}} onClick={handleCardClick}>
               <div className="box-up">
                 <img className="img" src={image} alt=""/>
                 <div className="img-info">
@@ -34,9 +44,6 @@ const Card = ({ name, brand, price, image }:ICard) => {
       
                 <a className="cart" href="#">
                   <span className="price">R${price}</span>
-                  <span className="add-to-cart">
-                    <span className="txt">Add in cart</span>
-                  </span>
                 </a>
               </div>
             </div>

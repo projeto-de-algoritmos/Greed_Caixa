@@ -1,12 +1,23 @@
-import React from 'react';
+import { Header, Body, SideBar } from './components';
+import React, { useState } from 'react';
 import './App.css';
-import { Header, Body } from './components';
 
 function App() {
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [itemValue, setItemValue] = useState({
+    iphone: 0,
+    galaxy: 0,
+    headset: 0,
+    mouse: 0,
+    teclado: 0,
+    gpu: 0
+  });
+
   return (
     <React.Fragment>
-      <Header />
-      <Body />
+      {showSideBar ? <SideBar setShowSideBar={setShowSideBar} /> : <></> }
+      <Header setShowSideBar={setShowSideBar}/>
+      <Body setItemValue={setItemValue} itemValue={itemValue} />
     </React.Fragment>
     // <div>
     //   <input placeholder="Valor: R$ 00.00" type="text" id="add"/>

@@ -1,7 +1,22 @@
-.body {
-  min-width: 100vw;
-  min-height: 100vh;
+.side-bar {
+  position: fixed;
+  background-color: white;
+  height: 100vh;
+  width: 15vw;
+  z-index: 1;
+  
+  display: flex;
+  flex-direction: column;
+}
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.button-sid-bar {
+  all: unset;
+  cursor: pointer;
+  align-self: flex-end;
+  padding: 10px;
+}
+
+.svg-hamburguer {
+  width: 30px;
+  
 }
