@@ -20,7 +20,7 @@ const Body = ({setItemValue, itemValue}:IBody) => {
     return (
         <div className='body'>
           {cardData.map((card) => (
-            <Card itemValue={itemValue} setItemValue={setItemValue} key={card.id} name={card.name} brand={card.brand} price={card.price} image={card.image}/>
+            <Card key={card.id} id={card.id} itemValue={itemValue} setItemValue={setItemValue} name={card.name} brand={card.brand} price={card.price} image={card.image}/>
           ))}
         </div>
     );

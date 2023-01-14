@@ -9,17 +9,22 @@ interface IBody {
 }
 
 interface ICard extends IBody{
+    id: string;
     name: string;
     brand: string;
     price: number;
     image?: string;
 }
 
-const Card = ({ name, brand, price, image, setItemValue, itemValue }:ICard) => {
+const Card = ({ id, name, brand, price, image, setItemValue, itemValue }:ICard) => {
     const [selected, setSelected] = useState(false);
     const handleCardClick = () => {
+      if (!selected) {
+        setItemValue({...itemValue, [id]: price});
+      } else {
+        setItemValue({...itemValue, [id]: 0});
+      }
       setSelected(!selected);
-      setItemValue({...itemValue, [name]: price})
     }
     return (
         <div className="container page-wrapper">

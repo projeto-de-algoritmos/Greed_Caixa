@@ -1,0 +1,13 @@
+.table-header {
+    width: 75%;
+    height: 50px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.table-header span {
+    width: 40%;
+    text-align: center;
+}
