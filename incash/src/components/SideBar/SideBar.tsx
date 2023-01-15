@@ -1,24 +1,35 @@
-import { IItemValue } from '../../modal/itemValue'
-import TableHeader from '../Table/Header/TableHeader';
-import TableRow from '../Table/Row/TableRow';
-import './style.css'
 import CurrencyInput from 'react-currency-input-field';
+import TableHeader from '../Table/Header/TableHeader';
+import { IItemValue } from '../../modal/itemValue'
+import TableRow from '../Table/Row/TableRow';
+import Greedy from '../../utils/greedy.js';
 import React, { useState } from 'react';
+import './style.css'
 
 interface ISideBar {
     setShowSideBar: (boolean: boolean)=> void;
     itemValue: IItemValue;
 }
 
+interface INotasValor {
+    nota: number;
+    qtd: number;
+}
+
 const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
     const [payedValue, setPayedValue] = useState(0);
+    const [troco, setTroco] = useState('');
+    const [notasValor, setNotasValor] = useState<INotasValor[]>([]);
+    const [show, setShow] = useState(false);
     
     const totalValue = itemValue.iphone + itemValue.galaxy + itemValue.headset + itemValue.mouse + itemValue.teclado + itemValue.gpu;
 
     const handlePayment = (event:React.SyntheticEvent) => {
         event.preventDefault();
-        console.log(payedValue);
-        console.log(totalValue);
+        setTroco(String(Greedy.pay(payedValue, totalValue)));
+        const data = Greedy.cal_change(troco);
+        setNotasValor(data);
+        setShow(!show);
     };
 
     return (
@@ -35,7 +46,9 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
                 {itemValue.mouse !== 0 ? <TableRow column1='Mouse' column2={String(itemValue.mouse)} /> : ''}
                 {itemValue.teclado !== 0 ? <TableRow column1='Teclado' column2={String(itemValue.teclado)} /> : ''}
                 {itemValue.gpu !== 0 ? <TableRow column1='Placa de Vídeo' column2={String(itemValue.gpu)} /> : ''}
-                <TableRow column1='Total' column2={String(itemValue.gpu)} />
+            </div>
+            <div className='total'>
+                <TableRow column1='Total' column2={String(totalValue.toFixed(2))} />
             </div>
             <div className='pagamento'>
                 <CurrencyInput
@@ -48,10 +61,16 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
                 />
                 <button type='submit' onClick={handlePayment}>Pagar</button>
             </div>
-            <span>Tabela de Troco</span>
+            {show ? <> <span>Tabela de Troco</span>
             <div className='tabela-troco'>
                 <TableHeader column1='Nota' column2='Quantidade'/>  
+                {notasValor.map((notaValor) => (
+                    <TableRow column1={String(notaValor.nota)} column2={String(notaValor.qtd)} />    
+                ))}
             </div>
+            <div className='total'>
+                <TableRow column1='Total' column2={troco} />
+            </div> </> : <></>}
         </div>
     )
 }
