@@ -1,44 +1,28 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# inCash
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 28<br>
+**Conteúdo da Disciplina**: Cashier's algorithm<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 19/0037997  |  Sidney Fernando F. Lemes |
+| 21/2005426 |  Lucas Gomes Caldas |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto objetiva simular um carrinho de compra que deve ser pagado à vista e, dependendo do valor que é pago, o algoritmo calcula o troco e apresenta as notas e/ou moedas que devem ser dadas como troco.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: JavaScript<br>
+Instale o nodejs
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+## Uso
+Na pasta incash, digite no terminal 
+```npm install```
+```npm start```
 
 
 
