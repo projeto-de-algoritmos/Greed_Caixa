@@ -17,10 +17,11 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
 **Linguagem**: JavaScript<br>
+**Framework**: React<br>
 Instale o nodejs
 
 ## Uso
-Na pasta incash, digite no terminal 
+Na pasta docs, digite no terminal 
 ```npm install```
 ```npm start```
 
