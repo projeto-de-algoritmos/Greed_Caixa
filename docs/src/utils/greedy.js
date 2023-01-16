@@ -1,5 +1,5 @@
 function pay(payment, total) {
-    if (payment === 0 || total == 0) {
+    if (payment === 0 || total === 0) {
         alert("Entre com um número válido!")
     }
     else if (payment < total) {
@@ -28,7 +28,10 @@ function cal_change(total) {
             troco.qtd++
         }
         troco.nota = notas[i];
-        trocos.push(troco);
+        if(troco.qtd !== 0){
+            trocos.push(troco);
+        }
+        
     }
     return trocos;
 }

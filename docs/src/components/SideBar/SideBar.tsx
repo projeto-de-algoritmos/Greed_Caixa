@@ -28,8 +28,11 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
         event.preventDefault();
         setTroco(String(Greedy.pay(payedValue, totalValue)));
         const data = Greedy.cal_change(troco);
-        setNotasValor(data);
-        setShow(!show);
+        if(data.length !== 0){
+            setNotasValor(data);
+            setShow(!show);
+        }
+    
     };
 
     return (
@@ -40,12 +43,12 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
             <span>Carinho de Compras</span>
             <div className='tabela-produtos'>
                 <TableHeader column1='Produto' column2='Valor'/>
-                {itemValue.iphone !== 0 ? <TableRow column1='iPhone 14' column2={String(itemValue.iphone)} /> : ''}
-                {itemValue.galaxy !== 0 ? <TableRow column1='Galaxy S22 Ultra' column2={String(itemValue.galaxy)} /> : ''}
-                {itemValue.headset !== 0 ? <TableRow column1='Headest' column2={String(itemValue.headset)} /> : ''}
-                {itemValue.mouse !== 0 ? <TableRow column1='Mouse' column2={String(itemValue.mouse)} /> : ''}
-                {itemValue.teclado !== 0 ? <TableRow column1='Teclado' column2={String(itemValue.teclado)} /> : ''}
-                {itemValue.gpu !== 0 ? <TableRow column1='Placa de Vídeo' column2={String(itemValue.gpu)} /> : ''}
+                {itemValue.iphone !== 0 ? <TableRow column1='iPhone 14' column2={'R$ ' + String(itemValue.iphone)} /> : ''}
+                {itemValue.galaxy !== 0 ? <TableRow column1='Galaxy S22 Ultra' column2={'R$ ' + String(itemValue.galaxy)} /> : ''}
+                {itemValue.headset !== 0 ? <TableRow column1='Headest' column2={'R$ ' + String(itemValue.headset)} /> : ''}
+                {itemValue.mouse !== 0 ? <TableRow column1='Mouse' column2={'R$ ' + String(itemValue.mouse)} /> : ''}
+                {itemValue.teclado !== 0 ? <TableRow column1='Teclado' column2={'R$ ' + String(itemValue.teclado)} /> : ''}
+                {itemValue.gpu !== 0 ? <TableRow column1='Placa de Vídeo' column2={'R$ ' + String(itemValue.gpu)} /> : ''}
             </div>
             <div className='total'>
                 <TableRow column1='Total' column2={String(totalValue.toFixed(2))} />
@@ -61,16 +64,17 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
                 />
                 <button type='submit' onClick={handlePayment}>Pagar</button>
             </div>
-            {show ? <> <span>Tabela de Troco</span>
+            {show ? <>
+            <div className='total'>
+                <TableRow column1='Troco' column2={'R$ ' + troco} />
+            </div>
             <div className='tabela-troco'>
                 <TableHeader column1='Nota' column2='Quantidade'/>  
                 {notasValor.map((notaValor) => (
                     <TableRow column1={String(notaValor.nota)} column2={String(notaValor.qtd)} />    
                 ))}
             </div>
-            <div className='total'>
-                <TableRow column1='Total' column2={troco} />
-            </div> </> : <></>}
+             </> : <></>}
         </div>
     )
 }
