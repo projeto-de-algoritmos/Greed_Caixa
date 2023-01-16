@@ -13,18 +13,24 @@
 O projeto objetiva simular um carrinho de compra que deve ser pagado à vista e, dependendo do valor que é pago, o algoritmo calcula o troco e apresenta as notas e/ou moedas que devem ser dadas como troco.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+<img src='img/Screenshot_1.png' width = 65%> <br>
+<img src='img/Screenshot_2.png' width = 65%> <br>
+<img src='img/Screenshot_2.png' width = 65%> <br>
 
 ## Instalação 
-**Linguagem**: JavaScript<br>
-**Framework**: React<br>
-Instale o nodejs
+**Linguagem**: JavaScript e TypeScript<br>
+**Front-end**: React.js<br>
+**Back-end**: Node.js<br>
+Instale o Node.js
 
 ## Uso
 Na pasta docs, digite no terminal 
-```npm install```
+```npm install``` <br>
 ```npm start```
 
+## Video
+[Arquivo](img/video%20dupla%2028.mp4)
+[Youtube](https://youtu.be/IhpwlY_vUJo)
 
 
 
