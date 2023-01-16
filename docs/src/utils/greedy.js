@@ -1,9 +1,12 @@
 function pay(payment, total) {
-    if (payment === 0 || total === 0) {
-        alert("Entre com um número válido!")
+    if (total === 0) {
+        alert("Carrinho vazio!")
     }
     else if (payment < total) {
         alert("Pagamento insuficiente")
+    }
+    else if(payment===0){
+        alert("Entre com um número valido")
     }
     else {
         const troco = (payment - total).toFixed(2)
@@ -36,4 +39,8 @@ function cal_change(total) {
     return trocos;
 }
 
-module.exports = { pay, cal_change }
+function randomPrice(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+module.exports = { pay, cal_change, randomPrice }

@@ -3,7 +3,8 @@
   min-height: 20vh;
   min-width: 100vw;
   background-color: black;
-
+  position: fixed;
+  z-index: 998;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,16 +12,18 @@
 }
 
 .title {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 38px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 60px;
   color: white;
-  }
+  margin: 0 0 50px 0;
+}
   
 .description {
-  font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 20px;
   text-transform: uppercase;
   color: white;
+  padding-bottom: 40px;
 }
 
 .button-svg-header {

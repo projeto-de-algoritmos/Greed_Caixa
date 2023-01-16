@@ -48,7 +48,7 @@ const Card = ({ id, name, brand, price, image, setItemValue, itemValue }:ICard) 
                 </div>
       
                 <a className="cart" href="#">
-                  <span className="price">R${price}</span>
+                  <span className="price">R$ {price.toFixed(2)}</span>
                 </a>
               </div>
             </div>

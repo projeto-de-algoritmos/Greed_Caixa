@@ -43,15 +43,15 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
             <span>Carinho de Compras</span>
             <div className='tabela-produtos'>
                 <TableHeader column1='Produto' column2='Valor'/>
-                {itemValue.iphone !== 0 ? <TableRow column1='iPhone 14' column2={'R$ ' + String(itemValue.iphone)} /> : ''}
-                {itemValue.galaxy !== 0 ? <TableRow column1='Galaxy S22 Ultra' column2={'R$ ' + String(itemValue.galaxy)} /> : ''}
-                {itemValue.headset !== 0 ? <TableRow column1='Headest' column2={'R$ ' + String(itemValue.headset)} /> : ''}
-                {itemValue.mouse !== 0 ? <TableRow column1='Mouse' column2={'R$ ' + String(itemValue.mouse)} /> : ''}
-                {itemValue.teclado !== 0 ? <TableRow column1='Teclado' column2={'R$ ' + String(itemValue.teclado)} /> : ''}
-                {itemValue.gpu !== 0 ? <TableRow column1='Placa de Vídeo' column2={'R$ ' + String(itemValue.gpu)} /> : ''}
+                {itemValue.iphone !== 0 ? <TableRow column1='iPhone 14' column2={'R$ ' + String(itemValue.iphone.toFixed(2))} /> : null}
+                {itemValue.galaxy !== 0 ? <TableRow column1='Galaxy S22 Ultra' column2={'R$ ' + String(itemValue.galaxy.toFixed(2))} /> : null}
+                {itemValue.headset !== 0 ? <TableRow column1='Headest' column2={'R$ ' + String(itemValue.headset.toFixed(2))} /> : null}
+                {itemValue.mouse !== 0 ? <TableRow column1='Mouse' column2={'R$ ' + String(itemValue.mouse.toFixed(2))} /> : null}
+                {itemValue.teclado !== 0 ? <TableRow column1='Teclado' column2={'R$ ' + String(itemValue.teclado.toFixed(2))} /> : null}
+                {itemValue.gpu !== 0 ? <TableRow column1='Placa de Vídeo' column2={'R$ ' + String(itemValue.gpu.toFixed(2))} /> : null}
             </div>
             <div className='total'>
-                <TableRow column1='Total' column2={String(totalValue.toFixed(2))} />
+                {totalValue !== 0 ? <TableRow column1='Total' column2={'R$ ' + String(totalValue.toFixed(2))} /> : null}
             </div>
             <div className='pagamento'>
                 <CurrencyInput
@@ -59,19 +59,20 @@ const SideBar = ({setShowSideBar, itemValue}: ISideBar) => {
                     id="input-example"
                     name="input-name"
                     placeholder="Pagamento: R$ 00.00"
+                    prefix='R$ '
                     decimalsLimit={2}
-                    onValueChange={(value, name) => setPayedValue(Number(value))}
+                    onValueChange={(value) => setPayedValue(Number(value))}
                 />
                 <button type='submit' onClick={handlePayment}>Pagar</button>
             </div>
             {show ? <>
-            <div className='total'>
+            <div className='troco'>
                 <TableRow column1='Troco' column2={'R$ ' + troco} />
             </div>
             <div className='tabela-troco'>
                 <TableHeader column1='Nota' column2='Quantidade'/>  
                 {notasValor.map((notaValor) => (
-                    <TableRow column1={String(notaValor.nota)} column2={String(notaValor.qtd)} />    
+                    <TableRow column1={'R$ ' + String(notaValor.nota.toFixed(2))} column2={String(notaValor.qtd)} />    
                 ))}
             </div>
              </> : <></>}
