@@ -15,7 +15,7 @@ O projeto objetiva simular um carrinho de compra que deve ser pagado à vista e,
 ## Screenshots
 <img src='img/Screenshot_1.png' width = 65%> <br>
 <img src='img/Screenshot_2.png' width = 65%> <br>
-<img src='img/Screenshot_2.png' width = 65%> <br>
+<img src='img/Screenshot_3.png' width = 65%> <br>
 
 ## Instalação 
 **Linguagem**: JavaScript e TypeScript<br>
